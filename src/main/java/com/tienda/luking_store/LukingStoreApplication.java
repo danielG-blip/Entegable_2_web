@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LukingStoreApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LukingStoreApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(LukingStoreApplication.class, args);
+    }
 }
