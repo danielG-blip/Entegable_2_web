@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;      
+import jakarta.persistence.JoinColumn;    
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -21,11 +23,18 @@ public class Producto {
 
     @Column(nullable = false, length = 100)
     private String nombre;
-    @Column(nullable = false, length = 15)
+
+    @Column(nullable = false)
     private int precio;
-    @Column(nullable = false, length = 100)
+
+    @Column(nullable = false)
     private int inventario;
 
+    
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
+    // -------------------------------------------
 
     public Long getId() {
         return this.id;
@@ -59,4 +68,12 @@ public class Producto {
         this.inventario = inventario;
     }
 
+    
+    public Categoria getCategoria() {
+        return this.categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
